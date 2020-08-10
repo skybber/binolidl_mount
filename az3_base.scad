@@ -25,5 +25,4 @@ difference() {
     translate([cone_x2/2, bspace+ring_y/2, -10]) rotate([0, 0, 0]) cylinder(d=screw_cent_d, h=50, $fn=100);
     translate([cone_x2/2, cone_y-(bspace+ring_y/2), -10]) rotate([0, 0, 0]) cylinder(d=screw_cent_d, h=50, $fn=100);
     translate([0, (cone_y-sub_y)/2, 0]) cube([cone_x2,sub_y,10]);
-    translate([0, 50, 0]) cube([cone_x2,cone_y,31]);
 }
