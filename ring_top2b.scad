@@ -4,7 +4,7 @@ outer_d1 = 96;
 inner_d2 = 82;
 outer_d2 = 106;
 
-height = 30;
+height = 20;
 screw_d=6.3;
 screw_cent_d=8.3;
 
