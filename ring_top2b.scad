@@ -1,7 +1,7 @@
 inner_d1 = 72;
-outer_d1 = 96;
+outer_d1 = 96.2;
 
-inner_d2 = 82;
+inner_d2 = 85;
 outer_d2 = 106;
 
 height = 20;
@@ -30,7 +30,7 @@ ccube_y2 = ccube_y1;
 
 // brim cube
 bcube_x=40;
-bcube_y=10;
+bcube_y=11;
 
 hole_x = (outer_d1 + ring_xsp1/2) + (nib_x-(outer_d1-inner_d1)/2)/2-1;
 
@@ -60,7 +60,7 @@ difference() {
         // center cube
         translate([-(outer_d1-inner_d1)/2-ring_xsp1, 0, -height/2]) cube([ccube_x1,ccube_y1,height]);
         difference() {
-            translate([-25, 32, -height/2]) cube([bcube_x,bcube_y,height]);
+            translate([-25, 31, -height/2]) cube([bcube_x,bcube_y,height]);
             translate([outer_d2/2+ring_xsp2, 0, 0]) ring2();
         }
         // nib
@@ -72,5 +72,6 @@ difference() {
     translate([0, 50, 0]) rotate([90, -50, 0]) cylinder(d=screw_cent_d, h=100);
     translate([hole_x+9, 15, 0]) rotate([90, 0, 0]) cylinder(d=screw_d, h=nib_y*2, $fn=100);
     translate([-hole_x, 15, 0]) rotate([90, 0, 0]) cylinder(d=screw_d, h=nib_y*2, $fn=100);
+    translate([-4.1, 36.5, -4.1]) cube([8.2,5.5,8.2]);
 }
 
