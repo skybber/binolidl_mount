@@ -76,6 +76,6 @@ difference() {
     translate([-hole_x, 15, 0]) rotate([90, 0, 0]) cylinder(d=screw_d, h=nib_y*2, $fn=100);
 }
 
-// translate([outer_d2/2+ring_xsp2, 0, 0]) rotate([0, -90, 55]) cylinder(d=screw_d, h=(outer_d1+20)/2, $fn=100);
-// translate([outer_d2/2+ring_xsp2, 0, 0]) rotate([0, -90, 175]) cylinder(d=screw_d, h=(outer_d1+20)/2, $fn=100);
-// translate([outer_d2/2+ring_xsp2, 0, 0]) rotate([0, -90, 295]) cylinder(d=screw_d, h=(outer_d1+20)/2, $fn=100);
+//translate([outer_d2/2+ring_xsp2, 0, 0]) rotate([0, -90, 55]) cylinder(d=screw_d, h=(outer_d1+20)/2, $fn=100);
+//translate([outer_d2/2+ring_xsp2, 0, 0]) rotate([0, -90, 175]) cylinder(d=screw_d, h=(outer_d1+20)/2, $fn=100);
+//translate([outer_d2/2+ring_xsp2, 0, 0]) rotate([0, -90, 295]) cylinder(d=screw_d, h=(outer_d1+20)/2, $fn=100);

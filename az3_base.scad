@@ -4,7 +4,8 @@ cone_x3=44;
 cone_y=225;
 cone_h = 23;
 cone_h2 = 67;
-mscrew_y=145;
+mscrew_y1=145;
+mscrew_y2=73;
 screw_cent_d=8.3;
 screw_d=6.3;
 ring_y=20;
@@ -67,11 +68,14 @@ difference() {
     rect_cut();
     translate([0, (cone_y+sub_y)/2, 0]) rect_cut();
     
-    translate([cone_x2/2, (cone_y-mscrew_y)/2, -10]) rotate([0, 0, 0]) cylinder(d=screw_d, h=50, $fn=100);
-    translate([cone_x2/2, cone_y-(cone_y-mscrew_y)/2, -10]) rotate([0, 0, 0]) cylinder(d=screw_d, h=50, $fn=100);
+    translate([cone_x2/2, (cone_y-mscrew_y1)/2, -10]) rotate([0, 0, 0]) cylinder(d=screw_d, h=50, $fn=100);
+    translate([cone_x2/2, (cone_y-mscrew_y2)/2, -10]) rotate([0, 0, 0]) cylinder(d=screw_d, h=50, $fn=100);
+    translate([cone_x2/2, cone_y-(cone_y-mscrew_y1)/2, -10]) rotate([0, 0, 0]) cylinder(d=screw_d, h=50, $fn=100);
+    translate([cone_x2/2, cone_y-(cone_y-mscrew_y2)/2, -10]) rotate([0, 0, 0]) cylinder(d=screw_d, h=50, $fn=100);
     translate([0, bspace+ring_y/2, bcube_h]) rotate([0, -45, 0]) translate([cone_x2-(cone_x2-cone_x1)/2,0,-60]) cylinder(d=screw_cent_d, h=100, $fn=100);
     translate([0, cone_y-(bspace+ring_y/2), bcube_h]) rotate([0, -45, 0]) translate([cone_x2-(cone_x2-cone_x1)/2,0,-60]) cylinder(d=screw_cent_d, h=100, $fn=100);
     translate([0, (cone_y-sub_y)/2, cone_h2+bcube_h-60]) cube([cone_x2,sub_y,60]);
-    translate([0, (cone_y-sub_y2)/2, cone_h2+bcube_h-69]) cube([cone_x2,sub_y2,80]);
+    //translate([0, (cone_y-sub_y2)/2, cone_h2+bcube_h-69]) cube([cone_x2,sub_y2,80]);
+    //translate([0, 85, 0]) cube([80,225,80]);
 }
 
