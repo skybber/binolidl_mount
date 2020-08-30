@@ -29,8 +29,10 @@ ccube_x2 = ccube_x1-5;
 ccube_y2 = ccube_y1;
 
 // brim cube
-bcube_x=40;
-bcube_y=11;
+bcube_x1=40;
+bcube_y1=10;
+bcube_x2=80;
+bcube_y2=7;
 
 hole_x = (outer_d1 + ring_xsp1/2) + (nib_x-(outer_d1-inner_d1)/2)/2-1;
 
@@ -60,7 +62,10 @@ difference() {
         // center cube
         translate([-(outer_d1-inner_d1)/2-ring_xsp1, 0, -height/2]) cube([ccube_x1,ccube_y1,height]);
         difference() {
-            translate([-25, 31, -height/2]) cube([bcube_x,bcube_y,height]);
+            union() {
+                translate([-25, 31, -height/2]) cube([bcube_x1,bcube_y1,height]);
+                translate([-45, 31+bcube_y1, -height/2]) cube([bcube_x2,bcube_y2,height]);
+            }
             translate([outer_d2/2+ring_xsp2, 0, 0]) ring2();
         }
         // nib
@@ -72,6 +77,6 @@ difference() {
     translate([0, 50, 0]) rotate([90, -50, 0]) cylinder(d=screw_cent_d, h=100);
     translate([hole_x+9, 15, 0]) rotate([90, 0, 0]) cylinder(d=screw_d, h=nib_y*2, $fn=100);
     translate([-hole_x, 15, 0]) rotate([90, 0, 0]) cylinder(d=screw_d, h=nib_y*2, $fn=100);
-    translate([-4.1, 36.5, -4.1]) cube([8.2,5.5,8.2]);
+    translate([-4.1, 42.5, -4.1]) cube([8.2,5.5,8.2]);
 }
 

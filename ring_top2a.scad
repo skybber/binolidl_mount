@@ -1,7 +1,7 @@
 inner_d1 = 72;
 outer_d1 = 96;
 
-inner_d2 = 84;
+inner_d2 = 81;
 outer_d2 = 106;
 
 height = 20;
@@ -36,6 +36,10 @@ bcube_y2=8;
 
 hole_x = (outer_d1 + ring_xsp1/2) + (nib_x-(outer_d1-inner_d1)/2)/2-1;
 
+notch_x=10;
+notch_y=5;
+notch_y_grad=0.0;
+
 module Create_Cylinder(d=100,h=25,a=360){
 rotate_extrude(angle=a,$fn = 50) {polygon( points=[[0,-h/2],[d/2,-h/2],[d/2,h/2],[0,h/2]] );}
 }
@@ -56,6 +60,29 @@ module ring2() {
             }    
 }
 
+module notch() {
+    polyhedron(
+        points=[
+                [-notch_x/2,-1,-height/2],
+                [notch_x/2,-1,-height/2],
+                [notch_x/2,-1,height/2],
+                [-notch_x/2,-1,height/2],
+                [-notch_x/2,notch_y,-height/2],
+                [notch_x/2,notch_y,-height/2],
+                [notch_x/2,notch_y-notch_y_grad,height/2],
+                [-notch_x/2,notch_y-notch_y_grad,height/2],
+                ],
+        faces =[
+                [0,3,2,1],
+                [1,2,6,5],
+                [5,6,7,4],
+                [4,7,3,0],
+                [6,2,3,7],
+                [0,1,5,4],
+            
+    ]);
+}
+
 difference() {
     union() {
         translate([-outer_d1/2-ring_xsp1, 0, 0]) ring1();
@@ -74,7 +101,12 @@ difference() {
     translate([0, 50, 0]) rotate([90, -50, 0]) cylinder(d=screw_cent_d, h=100);
     translate([hole_x+9, 15, 0]) rotate([90, 0, 0]) cylinder(d=screw_d, h=nib_y*2, $fn=100);
     translate([-hole_x, 15, 0]) rotate([90, 0, 0]) cylinder(d=screw_d, h=nib_y*2, $fn=100);
+    // Notches
+    translate([outer_d2/2+ring_xsp2, 0]) rotate([0, 0, -60]) translate([0, inner_d2/2, 0]) notch();
+    translate([outer_d2/2+ring_xsp2, 0]) rotate([0, 0, -120-60]) translate([0, inner_d2/2, 0]) notch();
+    translate([outer_d2/2+ring_xsp2, 0]) rotate([0, 0, 120-60]) translate([0, inner_d2/2, 0]) notch();
 }
+
 
 //translate([outer_d2/2+ring_xsp2, 0, 0]) rotate([0, -90, 55]) cylinder(d=screw_d, h=(outer_d1+20)/2, $fn=100);
 //translate([outer_d2/2+ring_xsp2, 0, 0]) rotate([0, -90, 175]) cylinder(d=screw_d, h=(outer_d1+20)/2, $fn=100);
