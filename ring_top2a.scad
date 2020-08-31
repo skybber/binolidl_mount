@@ -1,7 +1,7 @@
 inner_d1 = 72;
 outer_d1 = 96;
 
-inner_d2 = 81;
+inner_d2 = 79;
 outer_d2 = 106;
 
 height = 20;
