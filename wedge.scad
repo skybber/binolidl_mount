@@ -3,8 +3,8 @@ t=2;
 height = 60;
 
 wedge_x1 = 0;
-wedge_x2 = 4.5;
-wedge_x3 = 3;
+wedge_x2 = 5;
+wedge_x3 = 3.5;
 wedge_y = 10-0.5;
 
 module wedge() {

@@ -1,7 +1,7 @@
 inner_d1 = 72;
 outer_d1 = 96;
 
-inner_d2 = 79;
+inner_d2 = 81;
 outer_d2 = 106;
 
 height = 20;
@@ -102,9 +102,9 @@ difference() {
     translate([hole_x+9, 15, 0]) rotate([90, 0, 0]) cylinder(d=screw_d, h=nib_y*2, $fn=100);
     translate([-hole_x, 15, 0]) rotate([90, 0, 0]) cylinder(d=screw_d, h=nib_y*2, $fn=100);
     // Notches
-    translate([outer_d2/2+ring_xsp2, 0]) rotate([0, 0, -60]) translate([0, inner_d2/2, 0]) notch();
-    translate([outer_d2/2+ring_xsp2, 0]) rotate([0, 0, -120-60]) translate([0, inner_d2/2, 0]) notch();
-    translate([outer_d2/2+ring_xsp2, 0]) rotate([0, 0, 120-60]) translate([0, inner_d2/2, 0]) notch();
+    translate([outer_d2/2+ring_xsp2, 0]) rotate([0, 0, -75]) translate([0, inner_d2/2, 0]) notch();
+    translate([outer_d2/2+ring_xsp2, 0]) rotate([0, 0, -120-75]) translate([0, inner_d2/2, 0]) notch();
+    translate([outer_d2/2+ring_xsp2, 0]) rotate([0, 0, 120-75]) translate([0, inner_d2/2, 0]) notch();
 }
 
 
