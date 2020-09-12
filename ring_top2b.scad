@@ -36,6 +36,10 @@ bcube_y2=7;
 
 hole_x = (outer_d1 + ring_xsp1/2) + (nib_x-(outer_d1-inner_d1)/2)/2-1;
 
+module dovebase() {
+    import("dovebase.stl");
+}
+
 module Create_Cylinder(d=100,h=25,a=360){
 rotate_extrude(angle=a,$fn = 50) {polygon( points=[[0,-h/2],[d/2,-h/2],[d/2,h/2],[0,h/2]] );}
 }
@@ -70,6 +74,14 @@ difference() {
         }
         // nib
         rotate([0, 0, -0.8]) translate([-inner_xpos1-nib_x, 0, -height/2]) cube([nib_x,nib_y,height]);
+        // dovebase
+        difference() {
+            translate([-16, 33, -10]) rotate([0, 180, 0]) difference() {
+                dovebase();
+                translate([-21, -10, 0]) cube([42,10,40]);
+            }
+            translate([-outer_d1/2-ring_xsp1, 0, -20]) cylinder(d=inner_d1, h=height+40, center=true, $fn=360);
+        }
     }
     translate([-(outer_d1-inner_d1)/2-ring_xsp1+ccube_foot, 0, -height/2]) cube([ccube_x2,ccube_y2,height]);
     // nib bottom spacing
